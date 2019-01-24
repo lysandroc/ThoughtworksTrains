@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ThoughtworksTrains.Domain
+namespace ThoughtworksTrains.Util
 {
     public class Class1
     {
