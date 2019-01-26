@@ -68,5 +68,15 @@ namespace ThoughtworksTrains.Test.Business
 
             Assert.Throws<Exception>(actionInvalidRoute);
         }
+
+        [Fact]
+        public void ReturnNoSuchRouteToZY()
+        {
+            Action actionInvalidRoute = () => {
+                _calculate.Distance(_graph, new List<City>() { new City("Z"), new City("Y") });
+            };
+
+            Assert.Throws<Exception>(actionInvalidRoute);
+        }
     }
 }

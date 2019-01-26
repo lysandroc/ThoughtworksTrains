@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using ThoughtworksTrains.Domain.Interfaces;
+using ThoughtworksTrains.Domain.Exceptions;
 
 namespace ThoughtworksTrains.Business
 {
@@ -22,6 +23,9 @@ namespace ThoughtworksTrains.Business
         {
             foreach(var item in graph.GetPaths(from)) 
             {
+                if(!graph.NodeHasRelationship(item.Source, item.Target))
+                    throw new RouteException("NO SUCH ROUTE");
+
                 if(!visited.Contains(item)) {
                     visited.Add(item);
                     if(!item.Target.Equals(to))

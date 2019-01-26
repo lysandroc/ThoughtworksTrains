@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using ThoughtworksTrains.Domain;
 using ThoughtworksTrains.Domain.Interfaces;
+using ThoughtworksTrains.Domain.Exceptions;
 using ThoughtworksTrains.Business;
 
 namespace ThoughtworksTrains.Test.Business
@@ -42,6 +43,16 @@ namespace ThoughtworksTrains.Test.Business
             var distance = _calculate.ShortestDistance(_graph, new City("B"), new City("B"));
 
             Assert.Equal(9, distance);
+        }
+        
+        [Fact]
+        public void ReturnNoSuchRouteToZY()
+        {
+            Action actionInvalidRoute = () => {
+                _calculate.ShortestDistance(_graph, new City("Z"), new City("Y") );
+            };
+
+            Assert.Throws<RouteException>(actionInvalidRoute);
         }
     }
 }
