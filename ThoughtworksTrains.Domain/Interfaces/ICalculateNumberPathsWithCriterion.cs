@@ -4,7 +4,7 @@ namespace ThoughtworksTrains.Domain.Interfaces
 {
     public interface ICalculateNumberPathsWithCriterion
     {
-        Int64 CalculateNumberPathsWithCriterion(IGraph graph, INode from, INode to, ICriterion<IPredicate> criterion);
+        Int64 NumberPathsWithCriterion(IGraph graph, INode from, INode to, ICriterion<IPredicate> criterion);
 
     }
 }

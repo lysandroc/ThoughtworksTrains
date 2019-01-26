@@ -2,14 +2,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using ThoughtworksTrains.Domain.Interfaces;
+using ThoughtworksTrains.Domain.Exceptions;
 
 namespace ThoughtworksTrains.Business
 {
-    public class Calculate : ICalculateDistance //, ICalculateNumberPathsWithCriterion, ICalculateMinPath
+    public class CalculateDistance : ICalculateDistance
     {
-        private Int64 NumberPath { get; set; }
-
-        public Int64 CalculateDistance(IGraph graph, IReadOnlyList<INode> nodes)
+        public Int64 Distance(IGraph graph, IReadOnlyList<INode> nodes)
         {
             try
             {
@@ -20,9 +19,12 @@ namespace ThoughtworksTrains.Business
                 {
                     INode nextNode = nodes.ElementAt(position+1);
 
-                    graph.NodeHasRelationship(item, nextNode);
+                    if(!graph.NodeHasRelationship(item, nextNode))
+                    {
+                        throw new RouteException("NO SUCH ROUTE");
+                    }
 
-                    distance+= graph
+                    distance += graph
                         .GetPaths(item)
                         .Where(p=> p.Target.Equals(nextNode))
                         .First().Distance;
@@ -37,14 +39,5 @@ namespace ThoughtworksTrains.Business
                 throw new Exception(ex.Message);
             }
         }
-
-        // Int64 CalculateNumberPathsWithCriterion(IGraph graph, INode from, INode to, ICriterion<IPredicate> criterion)
-        // {
-        
-        // }
-        // Int64 CalculateMinPath(IGraph graph, INode from, INode to)
-        // {
-
-        // }
     }
 }

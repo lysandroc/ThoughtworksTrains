@@ -11,7 +11,7 @@ namespace ThoughtworksTrains.Test
         public void InvalidRoute()
         {
             Action actionInvalidRoute = () => { new Route(null, null, -1); };
-            Assert.Throws<ArgumentException>(actionInvalidRoute);
+            Assert.Throws<RouteException>(actionInvalidRoute);
         }
 
         [Fact]

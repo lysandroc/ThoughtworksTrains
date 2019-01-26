@@ -1,5 +1,6 @@
 using System;
 using ThoughtworksTrains.Domain.Interfaces;
+using ThoughtworksTrains.Domain.Exceptions;
 
 namespace ThoughtworksTrains.Domain
 {
@@ -9,10 +10,10 @@ namespace ThoughtworksTrains.Domain
         public INode Target { get; }
         public Int64 Distance { get; }
 
-        public Route(City source, City target, Int64 distance) 
+        public Route(INode source, INode target, Int64 distance) 
         {
             if(source == null || target == null || distance < 0)
-                throw new ArgumentException("The information of route should be positive, check if params were passed correlty!");
+                throw new RouteException("The information of route should be positive, check if params were passed correlty!");
             this.Source = source;
             this.Target = target;
             this.Distance = distance;

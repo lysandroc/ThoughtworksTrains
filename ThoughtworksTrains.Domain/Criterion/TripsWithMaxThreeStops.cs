@@ -3,7 +3,7 @@ using ThoughtworksTrains.Domain.Enum;
 
 namespace ThoughtworksTrains.Domain.Criterion
 {
-    public class ThreeTripsToStop : ICriterion<IPredicate>
+    public class TripsWithMaxThreeStops : ICriterion<IPredicate>
     {
         public EnumStatusCriterion Accord(IPredicate value)
         {

@@ -24,13 +24,13 @@ namespace ThoughtworksTrains.Test.Business
             _graph.AddPath(new Route(new City("E"), new City("B"), 3));
             _graph.AddPath(new Route(new City("A"), new City("E"), 7));
 
-            _calculate = new Calculate();
+            _calculate = new CalculateDistance();
         }
 
         [Fact]
         public void ReturnNineToABC()
         {
-            var distance = _calculate.CalculateDistance(_graph, new List<City>() { new City("A"), new City("B"), new City("C") });
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("A"), new City("B"), new City("C") });
 
             Assert.Equal(9, distance);
         }
@@ -38,7 +38,7 @@ namespace ThoughtworksTrains.Test.Business
         [Fact]
         public void ReturnFiveToAD()
         {
-            var distance = _calculate.CalculateDistance(_graph, new List<City>() { new City("A"), new City("D") });
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("A"), new City("D") });
 
             Assert.Equal(5, distance);
         }
@@ -46,7 +46,7 @@ namespace ThoughtworksTrains.Test.Business
         [Fact]
         public void ReturnThirTeenToADC()
         {
-            var distance = _calculate.CalculateDistance(_graph, new List<City>() { new City("A"), new City("D"), new City("C") });
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("A"), new City("D"), new City("C") });
 
             Assert.Equal(13, distance);
         }
@@ -54,7 +54,7 @@ namespace ThoughtworksTrains.Test.Business
         [Fact]
         public void ReturnTwentyTwoToAEBCD()
         {
-            var distance = _calculate.CalculateDistance(_graph, new List<City>() { new City("A"), new City("E"), new City("B"), new City("C"), new City("D") });
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("A"), new City("E"), new City("B"), new City("C"), new City("D") });
 
             Assert.Equal(22, distance);
         }
@@ -63,7 +63,7 @@ namespace ThoughtworksTrains.Test.Business
         public void ReturnNoSuchRouteToAED()
         {
             Action actionInvalidRoute = () => {
-                _calculate.CalculateDistance(_graph, new List<City>() { new City("A"), new City("E"), new City("D") });
+                _calculate.Distance(_graph, new List<City>() { new City("A"), new City("E"), new City("D") });
             };
 
             Assert.Throws<Exception>(actionInvalidRoute);

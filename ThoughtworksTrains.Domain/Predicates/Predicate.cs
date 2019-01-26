@@ -1,7 +1,7 @@
 using System;
 using ThoughtworksTrains.Domain.Interfaces;
 
-namespace ThoughtworksTrains.Domain
+namespace ThoughtworksTrains.Domain.Predicates
 {
     public class Predicate : IPredicate
     {
@@ -11,7 +11,11 @@ namespace ThoughtworksTrains.Domain
         public Int64 CurrentChildNumber { get; }
         public Int64 CurrentDistance { get; }
 
-        public Predicate(IGraph graph, INode nodeTarget, INode currentNode, Int64 currentChildNumber, Int64 currentDistance)
+        public Predicate(IGraph graph, 
+            INode nodeTarget, 
+            INode currentNode, 
+            Int64 currentChildNumber, 
+            Int64 currentDistance)
         {
             this.Graph = graph;
             this.Target = nodeTarget;
