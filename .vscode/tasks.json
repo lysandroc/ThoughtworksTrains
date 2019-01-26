@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ThoughtworksTrains.ConsoleApplication/ThoughtworksTrains.ConsoleApplication.csproj"
+                "${workspaceFolder}/ThoughtworksTrains.Application/ThoughtworksTrains.Application.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

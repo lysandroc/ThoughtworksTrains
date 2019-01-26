@@ -7,7 +7,7 @@ namespace ThoughtworksTrains.Domain
     {
         public String Name { get; set; }
         
-        public City(String id, String name) 
+        public City(String name) 
         {
             this.Name = name;
         }

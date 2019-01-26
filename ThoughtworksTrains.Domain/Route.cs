@@ -1,6 +1,5 @@
 using System;
 using ThoughtworksTrains.Domain.Interfaces;
-using ThoughtworksTrains.Domain.Exceptions;
 
 namespace ThoughtworksTrains.Domain
 {
@@ -13,7 +12,7 @@ namespace ThoughtworksTrains.Domain
         public Route(City source, City target, Int64 distance) 
         {
             if(source == null || target == null || distance < 0)
-                throw new RouteException("The information of route should be positive, check if params were passed correlty!");
+                throw new ArgumentException("The information of route should be positive, check if params were passed correlty!");
             this.Source = source;
             this.Target = target;
             this.Distance = distance;

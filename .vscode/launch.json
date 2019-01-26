@@ -9,9 +9,9 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/ThoughtworksTrains.ConsoleApplication/bin/Debug/netcoreapp2.2/ThoughtworksTrains.ConsoleApplication.dll",
+      "program": "${workspaceFolder}/ThoughtworksTrains.Application/bin/Debug/netcoreapp2.2/ThoughtworksTrains.Application.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/ThoughtworksTrains.ConsoleApplication",
+      "cwd": "${workspaceFolder}/ThoughtworksTrains.Application",
       "console": "internalConsole",
       "stopAtEntry": false,
       "internalConsoleOptions": "openOnSessionStart"

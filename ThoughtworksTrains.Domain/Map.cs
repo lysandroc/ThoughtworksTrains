@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain;
+using ThoughtworksTrains.Domain.Interfaces;
+using ThoughtworksTrains.Domain.Exceptions;
 
 namespace ThoughtworksTrains.Domain
 {
@@ -23,7 +24,14 @@ namespace ThoughtworksTrains.Domain
             if (this.Graph.ContainsKey(source))
                 return new List<IPath>(this.Graph[source]);
             else
-                throw new KeyNotFoundException("NO SUCH ROUTE");
+                throw new RouteException("NO SUCH ROUTE");
+        }
+
+        public bool NodeHasRelationship(INode currentNode, INode nextNode)
+        {
+            return this.Graph[currentNode]
+            .Where(adjacentVertex => nextNode.Equals(adjacentVertex.Target))
+            .Count() > 0;
         }
     }
 }
