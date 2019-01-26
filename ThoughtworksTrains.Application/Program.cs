@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ThoughtworksTrains.ConsoleApplication
+namespace ThoughtworksTrains.Application
 {
     class Program
     {
