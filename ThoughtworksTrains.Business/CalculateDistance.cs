@@ -20,9 +20,7 @@ namespace ThoughtworksTrains.Business
                     INode nextNode = nodes.ElementAt(position+1);
 
                     if(!graph.NodeHasRelationship(item, nextNode))
-                    {
-                        throw new RouteException("NO SUCH ROUTE");
-                    }
+                        return 0;
 
                     distance += graph
                         .GetPaths(item)

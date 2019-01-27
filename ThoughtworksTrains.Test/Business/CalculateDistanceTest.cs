@@ -62,21 +62,17 @@ namespace ThoughtworksTrains.Test.Business
         [Fact]
         public void ReturnNoSuchRouteToAED()
         {
-            Action actionInvalidRoute = () => {
-                _calculate.Distance(_graph, new List<City>() { new City("A"), new City("E"), new City("D") });
-            };
-
-            Assert.Throws<Exception>(actionInvalidRoute);
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("A"), new City("E"), new City("D") });
+            
+            Assert.Equal(0, distance);
         }
 
         [Fact]
         public void ReturnNoSuchRouteToZY()
         {
-            Action actionInvalidRoute = () => {
-                _calculate.Distance(_graph, new List<City>() { new City("Z"), new City("Y") });
-            };
-
-            Assert.Throws<Exception>(actionInvalidRoute);
+            var distance = _calculate.Distance(_graph, new List<City>() { new City("Z"), new City("Y") });
+            
+            Assert.Equal(0, distance);
         }
     }
 }

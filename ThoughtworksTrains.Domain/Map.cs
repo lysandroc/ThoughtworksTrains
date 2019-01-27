@@ -29,7 +29,7 @@ namespace ThoughtworksTrains.Domain
 
         public bool NodeHasRelationship(INode currentNode, INode nextNode)
         {
-            return this._graph[currentNode]
+            return this._graph.ContainsKey(currentNode) && this._graph[currentNode]
                 .Where(adjacentVertex => nextNode.Equals(adjacentVertex.Target))
                 .Count() > 0;
         }

@@ -9,7 +9,7 @@ namespace ThoughtworksTrains.Domain
         
         public City(String name) 
         {
-            this.Name = name;
+            this.Name = name.Trim();
         }
 
         public override string ToString() => this.Name;

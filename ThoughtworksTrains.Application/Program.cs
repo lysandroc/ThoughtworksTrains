@@ -11,17 +11,23 @@ namespace ThoughtworksTrains.Application
             try
             {
                 Console.WriteLine("Write your Graph here, follow this example below.");
-                Console.WriteLine("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
-
+                Console.WriteLine("Example Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
+                Console.Write("Graph: ");
+                
                 CommandStart commandStart = new CommandStart(Console.ReadLine());
                 
-                foreach (String output in commandStart.GetOutput())
-                    Console.WriteLine($"{output}");  
+                int index=1;   
+                foreach (Int64 distance in commandStart.GetOutput()) 
+                {
+                    var output = distance == 0 ? "NO SUCH ROUTE" : distance.ToString();
+                    Console.WriteLine($"Output #{index}: {output}");
+                    index++; 
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-            }     
+                Console.WriteLine("Please provide a valid router");
+            }
         }
     }
 }
