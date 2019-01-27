@@ -24,9 +24,7 @@ namespace ThoughtworksTrains.Application
             
             foreach (var route in input.Split(","))
             {
-                Match match = new Regex(@"^[a-zA-z]{2,2}\d{1}$").Match(route.Trim().ToString());
-        
-                if(!match.Success)
+                if(MatchFail(route))
                     throw new Exception();
 
                 graph.AddPath(
@@ -56,5 +54,6 @@ namespace ThoughtworksTrains.Application
         }
 
         private String FormatString(String text, int delimiter) => text.ToString().Trim().ToUpper().Substring(delimiter,1);
+        private bool MatchFail(String route) => !(new Regex(@"^[a-zA-z]{2,2}\d{1}$").Match(route.Trim().ToString()).Success);
     }
 }
