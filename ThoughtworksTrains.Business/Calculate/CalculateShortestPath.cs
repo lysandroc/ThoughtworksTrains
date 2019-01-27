@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain.Exceptions;
 
-namespace ThoughtworksTrains.Business
+namespace ThoughtworksTrains.Business.Calculate
 {
     public class CalculateShortestPath : ICalculateShortestPath
     {

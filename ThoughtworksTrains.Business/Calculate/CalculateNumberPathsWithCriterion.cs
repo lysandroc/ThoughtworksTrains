@@ -5,7 +5,7 @@ using ThoughtworksTrains.Domain.Enum;
 using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain.Predicates;
 
-namespace ThoughtworksTrains.Business
+namespace ThoughtworksTrains.Business.Calculate
 {
     public class CalculateNumberPathsWithCriterion :ICalculateNumberPathsWithCriterion
     {

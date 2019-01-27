@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ThoughtworksTrains.Business;
+using ThoughtworksTrains.Business.Calculate;
 using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain;
 using ThoughtworksTrains.Domain.Criterion;
