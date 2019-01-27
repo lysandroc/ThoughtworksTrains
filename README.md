@@ -1,4 +1,4 @@
-# ThoughtworksTrains
+# Thoughtworks, Challenge Trains
 
 ### Make sure you have installed Dotnet Core SDK (v2.2 or latest).
 
