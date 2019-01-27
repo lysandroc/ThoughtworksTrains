@@ -1,6 +1,6 @@
 # ThoughtworksTrains
 
-### Make sure you have instaled Dotnet Core SDK (v2.2 or latest).
+### Make sure you have installed Dotnet Core SDK (v2.2 or latest).
 
 # Quick-Start Guide
 

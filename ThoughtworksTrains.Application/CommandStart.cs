@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.DependencyInjection;
 using ThoughtworksTrains.Business.Calculate;
 using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain;
@@ -13,14 +14,13 @@ namespace ThoughtworksTrains.Application
         private readonly ICalculateDistance calculateDistance;
         private readonly ICalculateNumberPathsWithCriterion calculateWithCriterion;
         private readonly ICalculateShortestPath calculateShortestPath;
-        
-        private IGraph graph;
-        public CommandStart(String input) 
+        private readonly IGraph graph;
+        public CommandStart(IServiceProvider serviceProvider, String input) 
         {
-            graph = new Map();
-            calculateDistance = new CalculateDistance();
-            calculateWithCriterion = new CalculateNumberPathsWithCriterion();
-            calculateShortestPath = new CalculateShortestPath();
+            graph = serviceProvider.GetService<IGraph>();
+            calculateDistance = serviceProvider.GetService<ICalculateDistance>();
+            calculateWithCriterion = serviceProvider.GetService<ICalculateNumberPathsWithCriterion>();
+            calculateShortestPath = serviceProvider.GetService<ICalculateShortestPath>();
             
             foreach (var route in input.Split(","))
             {
