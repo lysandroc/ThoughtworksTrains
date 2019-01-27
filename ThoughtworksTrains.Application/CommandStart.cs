@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using ThoughtworksTrains.Business.Calculate;
 using ThoughtworksTrains.Domain.Interfaces;
 using ThoughtworksTrains.Domain;
@@ -23,6 +24,11 @@ namespace ThoughtworksTrains.Application
             
             foreach (var route in input.Split(","))
             {
+                Match match = new Regex(@"^[a-zA-z]{2,2}\d{1}$").Match(route.Trim().ToString());
+        
+                if(!match.Success)
+                    throw new Exception();
+
                 graph.AddPath(
                     new Route(
                         new City(FormatString(route,0)), 
